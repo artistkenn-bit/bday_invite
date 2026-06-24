@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Test Invite</title>
+<meta charset="UTF-8">
+<title>Birthday Invite</title>
 
 <style>
 body{
-    font-family:sans-serif;
+    margin:0;
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
+    font-family:sans-serif;
     background:#ff9ec4;
 }
 
 button{
-    padding:15px 30px;
+    padding:15px 25px;
     font-size:20px;
     margin:10px;
-    border-radius:20px;
     border:none;
+    border-radius:20px;
     cursor:pointer;
 }
 
@@ -47,6 +49,7 @@ button{
 
 .modal-content img{
     width:300px;
+    border-radius:10px;
 }
 </style>
 </head>
@@ -59,24 +62,23 @@ button{
 <div class="modal" id="modal">
     <div class="modal-content">
         <h2>YAY! 🎉</h2>
-        <img src="./itinerary.jpg">
+        <p>Thank you! 💕</p>
+
+        <!-- IMPORTANT IMAGE -->
+        <img src="./itinerary.jpg" alt="itinerary">
     </div>
 </div>
 
 <script>
-const yesBtn = document.getElementById("yes");
-const modal = document.getElementById("modal");
-
-// THIS IS THE KEY FIX
-yesBtn.onclick = function(){
-    modal.style.display = "flex";
+// YES button → show popup
+document.getElementById("yes").onclick = function(){
+    document.getElementById("modal").style.display = "flex";
 };
 
-// NO button runaway (optional)
-const noBtn = document.getElementById("no");
-noBtn.addEventListener("mouseover", ()=>{
-    noBtn.style.left = Math.random()*300 + "px";
-    noBtn.style.top = Math.random()*300 + "px";
+// NO button runaway
+document.getElementById("no").addEventListener("mouseover", function(){
+    this.style.left = Math.random()*300 + "px";
+    this.style.top = Math.random()*300 + "px";
 });
 </script>
 
