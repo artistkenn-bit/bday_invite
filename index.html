@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Birthday Invite</title>
+<title>Birthday Invite ❤️</title>
 
 <style>
 body{
@@ -15,6 +15,17 @@ body{
     background:#ff9ec4;
 }
 
+/* main box */
+.container{
+    text-align:center;
+    color:white;
+}
+
+h1{
+    margin-bottom:20px;
+}
+
+/* buttons */
 button{
     padding:15px 25px;
     font-size:20px;
@@ -24,10 +35,18 @@ button{
     cursor:pointer;
 }
 
+#yes{
+    background:#ff1493;
+    color:white;
+}
+
 #no{
+    background:white;
+    color:#ff1493;
     position:absolute;
 }
 
+/* modal */
 .modal{
     display:none;
     position:fixed;
@@ -38,6 +57,7 @@ button{
     background:rgba(0,0,0,0.7);
     justify-content:center;
     align-items:center;
+    flex-direction:column;
 }
 
 .modal-content{
@@ -45,41 +65,57 @@ button{
     padding:20px;
     border-radius:15px;
     text-align:center;
+    color:black;
 }
 
 .modal-content img{
     width:300px;
     border-radius:10px;
+    margin-top:10px;
+}
+
+.caption{
+    font-weight:bold;
+    margin-top:10px;
 }
 </style>
 </head>
 
 <body>
 
-<button id="yes">YES ❤️</button>
-<button id="no">NO 😅</button>
+<div class="container">
+    <h1>🎂 Can I celebrate your birthday with you? ❤️</h1>
 
+    <button id="yes">YES ❤️</button>
+    <button id="no">NO 😅</button>
+</div>
+
+<!-- MODAL -->
 <div class="modal" id="modal">
     <div class="modal-content">
-        <h2>YAY! 🎉</h2>
-        <p>Thank you! 💕</p>
+        <h2>YAAAYYY! 🎉</h2>
 
-        <!-- IMPORTANT IMAGE -->
+        <div class="caption">
+            Here's our itinerary 💕
+        </div>
+
         <img src="./itinerary.jpg" alt="itinerary">
     </div>
 </div>
 
 <script>
-// YES button → show popup
+
+// YES → show modal
 document.getElementById("yes").onclick = function(){
     document.getElementById("modal").style.display = "flex";
 };
 
-// NO button runaway
+// NO → runaway button
 document.getElementById("no").addEventListener("mouseover", function(){
     this.style.left = Math.random()*300 + "px";
     this.style.top = Math.random()*300 + "px";
 });
+
 </script>
 
 </body>
