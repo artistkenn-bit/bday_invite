@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Birthday Invite ❤️</title>
+<title>Birthday Invitation ❤️</title>
 
 <style>
 body{
@@ -15,7 +15,7 @@ body{
     background:#ff9ec4;
 }
 
-/* main box */
+/* container */
 .container{
     text-align:center;
     color:white;
@@ -58,6 +58,7 @@ button{
     justify-content:center;
     align-items:center;
     flex-direction:column;
+    z-index:9999;
 }
 
 .modal-content{
@@ -74,9 +75,28 @@ button{
     margin-top:10px;
 }
 
-.caption{
-    font-weight:bold;
+/* full screen button */
+.fs-btn{
     margin-top:10px;
+    padding:10px 20px;
+    border:none;
+    border-radius:15px;
+    background:#ff1493;
+    color:white;
+    cursor:pointer;
+}
+
+/* fullscreen image */
+.fullscreen-img{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:black;
+    z-index:10000;
+    cursor:pointer;
 }
 </style>
 </head>
@@ -84,7 +104,7 @@ button{
 <body>
 
 <div class="container">
-    <h1>🎂 Can I celebrate your birthday with you, Arch. Alex? ❤️</h1>
+    <h1>🎂 Can I celebrate your birthday with you? ❤️</h1>
 
     <button id="yes">YES ❤️</button>
     <button id="no">NO 😅</button>
@@ -94,18 +114,19 @@ button{
 <div class="modal" id="modal">
     <div class="modal-content">
         <h2>YAAAYYY! 🎉</h2>
-
-        <div class="caption">
-            Here's our itinerary 💕
-        </div>
+        <p>Here's our itinerary 💕</p>
 
         <img src="./itinerary.jpg" alt="itinerary">
+
+        <button class="fs-btn" onclick="openFullScreen()">
+            View Full Screen 🖼️
+        </button>
     </div>
 </div>
 
 <script>
 
-// YES → show modal
+// YES → open modal
 document.getElementById("yes").onclick = function(){
     document.getElementById("modal").style.display = "flex";
 };
@@ -115,6 +136,19 @@ document.getElementById("no").addEventListener("mouseover", function(){
     this.style.left = Math.random()*300 + "px";
     this.style.top = Math.random()*300 + "px";
 });
+
+// FULL SCREEN IMAGE
+function openFullScreen(){
+    const img = document.createElement("img");
+    img.src = "./itinerary.jpg";
+    img.className = "fullscreen-img";
+
+    img.onclick = function(){
+        img.remove();
+    };
+
+    document.body.appendChild(img);
+}
 
 </script>
 
